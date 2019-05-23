@@ -1,7 +1,17 @@
 <?php namespace Model;
 
+require '../../../config/database.php';
+
+use Database\DB;
+
 class Model{
     protected $attributes = [];
+    public $conn;
+
+    public function __construct(){
+        $this->conn = DB::connect();
+    }
+
     protected function Attributes($attributes){
         if(is_array($attributes)){
             $this->attributes = $attributes;

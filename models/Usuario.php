@@ -7,6 +7,7 @@ use Model\Model;
 class Usuario extends Model{
 
     public function __construct(){
+        parent::__construct();
         $this->Attributes([
             'nombre' => '',
             'email' => 0,
