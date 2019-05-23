@@ -1,15 +1,19 @@
 <?php namespace Model;
 
-require '../../../config/database.php';
+require '../config/database.php';
 
 use Database\DB;
 
 class Model{
     protected $attributes = [];
-    public $conn;
+    protected $conn;
 
     public function __construct(){
         $this->conn = DB::connect();
+    }
+
+    public function db(){
+        return $this->conn;
     }
 
     protected function Attributes($attributes){
@@ -43,7 +47,7 @@ class Model{
         }
         $trace = debug_backtrace();
         trigger_error(
-            'Undefined property via __get(): ' . $name .
+            'Undefined property: ' . $name .
             ' in ' . $trace[0]['file'] .
             ' on line ' . $trace[0]['line'],
             E_USER_NOTICE);

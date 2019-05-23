@@ -14,7 +14,7 @@ class UsuarioController{
 
     public function crear(){
         $usuario = new Usuario();
-
+        
         $nombre = $_POST['nombre'];
         $usuario->nombre = $nombre;
 
@@ -23,6 +23,10 @@ class UsuarioController{
 
         $password = $_POST['password'];
         $usuario->password = $password;
+
+        // $sql = "SELECT * FROM numeros";
+        // $stmt = $usuario->conn()->query($sql);
+        // var_dump($stmt->fetch());
         require '../views/Usuarios/crear.php';    
     }
 
